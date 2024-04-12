@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 function App() {
-  return <h1>Project Client</h1>;
+  return (
+    <div className="p-11">
+      <button className="btn btn-outline btn-accent">Accent</button>
+    </div>
+  );
 }
 
 export default App;
