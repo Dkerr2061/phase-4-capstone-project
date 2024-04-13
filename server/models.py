@@ -53,7 +53,7 @@ class Review(db.Model, SerializerMixin):
   album_id = db.Column(db.Integer, db.ForeignKey('albums.id'))
 
   artist = db.relationship('Artist', back_populates='reviews')
-  album = db.relationship('Album', back_populates='reviews')
+  album = db.relationship('Album', back_populates='reviews', cascade='all')
 
   @validates('rating')
   def validate_rating(self, key, value):
