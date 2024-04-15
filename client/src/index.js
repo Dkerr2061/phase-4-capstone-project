@@ -8,6 +8,7 @@ import ArtistList from "./components/ArtistList";
 import AddArtist from "./pages/AddArtist";
 import ArtistsDetails from "./pages/ArtistsDetails";
 import AddAlbum from "./pages/AddAlbum";
+import AlbumList from "./components/AlbumList";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       },
       {
         path: "/albums",
+        element: <AlbumList />,
+      },
+      {
+        path: "/add_album",
         element: <AddAlbum />,
       },
     ],

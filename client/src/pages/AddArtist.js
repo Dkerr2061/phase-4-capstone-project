@@ -26,8 +26,6 @@ function AddArtist() {
     navigate("/");
   }
 
-  console.log(formData);
-
   return (
     <div className="text-center">
       <h2 className="text-teal-300 text-5xl mb-4">Add Artist</h2>

@@ -4,9 +4,11 @@ import NavBar from "./NavBar";
 
 function App() {
   const [artists, setArtists] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   const navigate = useNavigate();
 
+  // Aritst data and functions
   useEffect(() => {
     fetch("/artists")
       .then((res) => res.json())
@@ -50,6 +52,35 @@ function App() {
     });
   }
 
+  // Album data and functions
+
+  useEffect(() => {
+    fetch("/albums")
+      .then((res) => res.json())
+      .then((albumData) => setAlbums(albumData));
+  }, []);
+
+  function addAlbum(newAlbum) {
+    fetch("/albums", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newAlbum),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((newAlbumData) => {
+          setArtists([...albums, newAlbumData]);
+          // navigate(`/artists/${id}`);
+        });
+      } else if (res.status == 400) {
+        res.json().then((errorData) => alert(`Error: ${errorData}`));
+      } else {
+        res.json().then(() => alert("Error: Something went wrong."));
+      }
+    });
+  }
+
   return (
     <div>
       <NavBar />
@@ -58,6 +89,8 @@ function App() {
           artists: artists,
           addArtist: addArtist,
           deleteArtist: deleteArtist,
+          addAlbum: addAlbum,
+          albums: albums,
         }}
       />
     </div>

@@ -12,36 +12,33 @@ function ArtistsDetails() {
       .then((artistData) => setArtists(artistData));
   }, [id]);
 
-  function navigateToAddAlbum() {
-    navigate("/albums");
-  }
+  // function navigateToAddAlbum() {
+  //   navigate("/add_album");
+  // }
 
   return (
-    <div className="flex justify-center items-center">
-      {artists ? (
-        <>
-          <div className="card w-96 glass shadow-xl">
-            <figure className="px-10 pt-10">
-              <img
-                src={artists.image}
-                alt={artists.name}
-                className="rounded-xl"
-              />
-            </figure>
-            <div className="card-body items-center text-center">
-              <h2 className="card-title">{artists.name}</h2>
-              <div className="card-actions">
-                <button
-                  className="btn btn-primary"
-                  onClick={navigateToAddAlbum}
-                >
-                  Add Album
-                </button>
+    <div>
+      <div className="flex justify-center items-center">
+        {artists ? (
+          <>
+            <div className="card w-96 glass shadow-xl">
+              <figure className="px-10 pt-10">
+                <img
+                  src={artists.image}
+                  alt={artists.name}
+                  className="rounded-xl"
+                />
+              </figure>
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">{artists.name}</h2>
+                <div className="card-actions">
+                  <button className="btn btn-primary">Add Review</button>
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      ) : null}
+          </>
+        ) : null}
+      </div>
     </div>
   );
 }

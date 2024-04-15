@@ -29,7 +29,13 @@ function NavBar() {
               <NavLink to="/">Home Page</NavLink>
             </li>
             <li>
+              <NavLink to="/albums">View Albums</NavLink>
+            </li>
+            <li>
               <NavLink to="/add_artist">Add Artist</NavLink>
+            </li>
+            <li>
+              <NavLink to="/add_album">Add Album</NavLink>
             </li>
             <li>
               <NavLink>Write Review</NavLink>
@@ -38,9 +44,9 @@ function NavBar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-3xl">
+        <button className="btn btn-ghost text-3xl">
           <NavLink to="/">🎧 Looney Tunes 🎧</NavLink>
-        </a>
+        </button>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
