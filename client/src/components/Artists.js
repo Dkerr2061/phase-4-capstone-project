@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 function Artists({ artist, deleteArtist }) {
+  const { id } = artist;
+  const navigate = useNavigate();
+
+  function navigateToDetails() {
+    navigate(`/artists/${id}`);
+  }
+
   function handleDelete() {
     deleteArtist(artist.id);
   }
@@ -15,7 +24,9 @@ function Artists({ artist, deleteArtist }) {
       <div className="card-body items-center text-center">
         <h2 className="card-title">{artist.name}</h2>
         <div className="card-actions">
-          <button className="btn btn-primary">Artist Info</button>
+          <button className="btn btn-primary" onClick={navigateToDetails}>
+            Artist Info
+          </button>
           <button className="btn btn-primary" onClick={handleDelete}>
             Delete Artist
           </button>

@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import ArtistList from "./components/ArtistList";
 import AddArtist from "./pages/AddArtist";
+import ArtistsDetails from "./pages/ArtistsDetails";
+import AddAlbum from "./pages/AddAlbum";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/add_artist",
         element: <AddArtist />,
+      },
+      {
+        path: "/artists/:id",
+        element: <ArtistsDetails />,
+      },
+      {
+        path: "/albums",
+        element: <AddAlbum />,
       },
     ],
   },

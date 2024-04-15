@@ -38,7 +38,9 @@ function NavBar() {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost text-3xl">Looney Tunes 🎼</a>
+        <a className="btn btn-ghost text-3xl">
+          <NavLink to="/">🎧 Looney Tunes 🎧</NavLink>
+        </a>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle">
