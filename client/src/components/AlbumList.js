@@ -2,11 +2,11 @@ import { useOutletContext } from "react-router-dom";
 import Album from "../components/Album";
 
 function AlbumList() {
-  const { albums } = useOutletContext();
+  const { albums, deleteAlbum } = useOutletContext();
   // console.log(albums);
 
   const albumComponent = albums.map((album) => {
-    return <Album key={album.id} album={album} />;
+    return <Album key={album.id} album={album} deleteAlbum={deleteAlbum} />;
   });
 
   return (

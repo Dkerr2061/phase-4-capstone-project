@@ -12,10 +12,6 @@ function ArtistsDetails() {
       .then((artistData) => setArtists(artistData));
   }, [id]);
 
-  // function navigateToAddAlbum() {
-  //   navigate("/add_album");
-  // }
-
   return (
     <div>
       <div className="flex justify-center items-center">

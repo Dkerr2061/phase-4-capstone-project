@@ -82,6 +82,22 @@ function App() {
 
   function updateAlbum(id) {}
 
+  function deleteAlbum(id) {
+    fetch(`/albums/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        setAlbums((albums) =>
+          albums.filter((album) => {
+            return album.id !== id;
+          })
+        );
+      } else if (res.status === 404) {
+        res.json().then((errorData) => alert(`Error: ${errorData}`));
+      }
+    });
+  }
+
   return (
     <div>
       <NavBar />
@@ -92,6 +108,7 @@ function App() {
           deleteArtist: deleteArtist,
           addAlbum: addAlbum,
           albums: albums,
+          deleteAlbum: deleteAlbum,
         }}
       />
     </div>
