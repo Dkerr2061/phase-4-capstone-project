@@ -28,7 +28,7 @@ function App() {
           setArtists([...artists, newArtistData]);
           navigate("/");
         });
-      } else if (res.status == 400) {
+      } else if (res.status === 400) {
         res.json().then((errorData) => alert(`Error: ${errorData}`));
       } else {
         res.json().then(() => alert("Error: Something went wrong."));
@@ -58,7 +58,7 @@ function App() {
     fetch("/albums")
       .then((res) => res.json())
       .then((albumData) => setAlbums(albumData));
-  }, []);
+  }, [albums]);
 
   function addAlbum(newAlbum) {
     fetch("/albums", {
@@ -71,15 +71,16 @@ function App() {
       if (res.ok) {
         res.json().then((newAlbumData) => {
           setArtists([...albums, newAlbumData]);
-          // navigate(`/artists/${id}`);
         });
-      } else if (res.status == 400) {
+      } else if (res.status === 400) {
         res.json().then((errorData) => alert(`Error: ${errorData}`));
       } else {
         res.json().then(() => alert("Error: Something went wrong."));
       }
     });
   }
+
+  function updateAlbum(id) {}
 
   return (
     <div>
