@@ -9,6 +9,7 @@ import AddArtist from "./pages/AddArtist";
 import ArtistsDetails from "./pages/ArtistsDetails";
 import AddAlbum from "./pages/AddAlbum";
 import AlbumList from "./components/AlbumList";
+import UpdateAlbum from "./pages/UpdateAlbum";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/add_album",
         element: <AddAlbum />,
+      },
+      {
+        path: "/albums/:id",
+        element: <UpdateAlbum />,
       },
     ],
   },
