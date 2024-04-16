@@ -38,7 +38,7 @@ function NavBar() {
               <NavLink to="/add_album">Add Album</NavLink>
             </li>
             <li>
-              <NavLink>Write Review</NavLink>
+              <NavLink to="/reviews">View Reviews</NavLink>
             </li>
           </ul>
         </div>

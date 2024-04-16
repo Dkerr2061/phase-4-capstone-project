@@ -10,6 +10,9 @@ import ArtistsDetails from "./pages/ArtistsDetails";
 import AddAlbum from "./pages/AddAlbum";
 import AlbumList from "./components/AlbumList";
 import UpdateAlbum from "./pages/UpdateAlbum";
+import ReviewList from "./components/ReviewList";
+import AddReview from "./pages/AddReview";
+import UpdateReview from "./pages/UpdateReview";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +43,18 @@ const router = createBrowserRouter([
       {
         path: "/albums/:id",
         element: <UpdateAlbum />,
+      },
+      {
+        path: "/reviews",
+        element: <ReviewList />,
+      },
+      {
+        path: "/add_review",
+        element: <AddReview />,
+      },
+      {
+        path: "/reviews/:id",
+        element: <UpdateReview />,
       },
     ],
   },

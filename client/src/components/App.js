@@ -140,7 +140,23 @@ function App() {
       .then((reviewsData) => setReviews(reviewsData));
   }, []);
 
-  console.log(reviews);
+  function addReviews(newReviewData) {
+    fetch("/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newReviewData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((reviewData) => setReviews([...reviews, reviewData]));
+      } else if (res.status === 400 || res.status === 404) {
+        res.json().then((errorData) => {
+          alert(`Error: ${errorData.error}`);
+        });
+      }
+    });
+  }
 
   // End of Review Data and Functions...
 
@@ -156,6 +172,8 @@ function App() {
           albums: albums,
           deleteAlbum: deleteAlbum,
           updateAlbum: updateAlbum,
+          reviews: reviews,
+          addReviews: addReviews,
         }}
       />
     </div>

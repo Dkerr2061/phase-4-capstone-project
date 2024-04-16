@@ -6,6 +6,10 @@ function ArtistsDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  function navigateToWriteReviews() {
+    navigate("/add_review");
+  }
+
   useEffect(() => {
     fetch(`/artists/${id}`)
       .then((res) => res.json())
@@ -27,8 +31,14 @@ function ArtistsDetails() {
               </figure>
               <div className="card-body items-center text-center">
                 <h2 className="card-title">{artists.name}</h2>
+                <h3> Artist Id: {artists.id}</h3>
                 <div className="card-actions">
-                  <button className="btn btn-primary">Add Review</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={navigateToWriteReviews}
+                  >
+                    Add Review
+                  </button>
                 </div>
               </div>
             </div>
