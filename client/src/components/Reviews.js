@@ -1,11 +1,15 @@
 import { useNavigate } from "react-router-dom";
 
-function Reviews({ review }) {
+function Reviews({ review, deleteReview }) {
   const { id, artist, album, artist_id, album_id, rating, text } = review;
   const navigate = useNavigate();
 
   function navigateToEdit() {
     navigate(`/reviews/${id}`);
+  }
+
+  function handleDelete(id) {
+    deleteReview(review.id);
   }
 
   return (
@@ -31,7 +35,9 @@ function Reviews({ review }) {
           <button className="btn btn-primary" onClick={navigateToEdit}>
             Edit Review
           </button>
-          <button className="btn btn-primary">Delete Review</button>
+          <button className="btn btn-primary" onClick={handleDelete}>
+            Delete Review
+          </button>
         </div>
       </div>
     </div>

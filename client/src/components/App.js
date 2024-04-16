@@ -158,6 +158,24 @@ function App() {
     });
   }
 
+  function deleteReview(id) {
+    fetch(`/reviews/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        setReviews((reviews) =>
+          reviews.filter((review) => {
+            return review.id !== id;
+          })
+        );
+      } else if (res.status === 400 || res.status === 404) {
+        res.json().then((errorData) => {
+          alert(`Error: ${errorData.error}`);
+        });
+      }
+    });
+  }
+
   // End of Review Data and Functions...
 
   return (
@@ -174,6 +192,7 @@ function App() {
           updateAlbum: updateAlbum,
           reviews: reviews,
           addReviews: addReviews,
+          deleteReview: deleteReview,
         }}
       />
     </div>

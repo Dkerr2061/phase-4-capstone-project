@@ -2,10 +2,12 @@ import { useOutletContext } from "react-router-dom";
 import Reviews from "./Reviews";
 
 function ReviewList() {
-  const { reviews } = useOutletContext();
+  const { reviews, deleteReview } = useOutletContext();
 
   const reviewComponent = reviews.map((review) => {
-    return <Reviews key={review.id} review={review} />;
+    return (
+      <Reviews key={review.id} review={review} deleteReview={deleteReview} />
+    );
   });
 
   return (
