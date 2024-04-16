@@ -58,7 +58,8 @@ function App() {
     fetch("/albums")
       .then((res) => res.json())
       .then((albumData) => setAlbums(albumData));
-  }, [albums]);
+  }, []);
+  // Ask Why this is stuck in an infinite loop whenever you pass albums in the dependancy array. It started happening when I added the update function
 
   function addAlbum(newAlbum) {
     fetch("/albums", {
@@ -70,7 +71,7 @@ function App() {
     }).then((res) => {
       if (res.ok) {
         res.json().then((newAlbumData) => {
-          setArtists([...albums, newAlbumData]);
+          setAlbums([...albums, newAlbumData]);
         });
       } else if (res.status === 400) {
         res.json().then((errorData) => alert(`Error: ${errorData}`));
@@ -80,7 +81,37 @@ function App() {
     });
   }
 
-  function updateAlbum(id) {}
+  function updateAlbum(id, albumDataToUpdate) {
+    fetch(`/albums/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(albumDataToUpdate),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((updatedAlbumData) => {
+          setAlbums((albums) =>
+            albums.map((album) => {
+              if (album.id === updatedAlbumData.id) {
+                return updatedAlbumData;
+              } else {
+                return album;
+              }
+            })
+          );
+        });
+      } else if (res.status === 400 || res.status === 404) {
+        res.json().then((errorData) => {
+          alert(`Error: ${errorData.error}`);
+        });
+      } else {
+        res.json().then(() => {
+          alert("Error: Something went wrong.");
+        });
+      }
+    });
+  }
 
   function deleteAlbum(id) {
     fetch(`/albums/${id}`, {
@@ -109,6 +140,7 @@ function App() {
           addAlbum: addAlbum,
           albums: albums,
           deleteAlbum: deleteAlbum,
+          updateAlbum: updateAlbum,
         }}
       />
     </div>

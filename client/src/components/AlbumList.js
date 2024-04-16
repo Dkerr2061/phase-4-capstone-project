@@ -3,7 +3,6 @@ import Album from "../components/Album";
 
 function AlbumList() {
   const { albums, deleteAlbum } = useOutletContext();
-  // console.log(albums);
 
   const albumComponent = albums.map((album) => {
     return <Album key={album.id} album={album} deleteAlbum={deleteAlbum} />;
