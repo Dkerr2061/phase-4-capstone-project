@@ -5,10 +5,11 @@ import NavBar from "./NavBar";
 function App() {
   const [artists, setArtists] = useState([]);
   const [albums, setAlbums] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const navigate = useNavigate();
 
-  // Aritst data and functions
+  // Aritst Data and Functions:
   useEffect(() => {
     fetch("/artists")
       .then((res) => res.json())
@@ -51,8 +52,9 @@ function App() {
       }
     });
   }
+  // End of Artist Data and Functions...
 
-  // Album data and functions
+  // Album Data and Functions:
 
   useEffect(() => {
     fetch("/albums")
@@ -128,6 +130,19 @@ function App() {
       }
     });
   }
+  // End of Album Data and Functions...
+
+  // Reviews Data and Functions:
+
+  useEffect(() => {
+    fetch("/reviews")
+      .then((res) => res.json())
+      .then((reviewsData) => setReviews(reviewsData));
+  }, []);
+
+  console.log(reviews);
+
+  // End of Review Data and Functions...
 
   return (
     <div>
