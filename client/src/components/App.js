@@ -158,6 +158,38 @@ function App() {
     });
   }
 
+  function updateReview(id, reviewDataToUpdate) {
+    fetch(`/reviews/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewDataToUpdate),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((updatedReviewData) => {
+          setReviews((reviews) =>
+            reviews.map((review) => {
+              if (review.id === updatedReviewData.id) {
+                return updatedReviewData;
+              } else {
+                return review;
+              }
+            })
+          );
+        });
+      } else if (res.status === 400 || res.status === 404) {
+        res.json().then((errorData) => {
+          alert(`Error: ${errorData.error}`);
+        });
+      } else {
+        res.json().then(() => {
+          alert("Error: Something went wrong.");
+        });
+      }
+    });
+  }
+
   function deleteReview(id) {
     fetch(`/reviews/${id}`, {
       method: "DELETE",
@@ -193,6 +225,7 @@ function App() {
           reviews: reviews,
           addReviews: addReviews,
           deleteReview: deleteReview,
+          updateReview: updateReview,
         }}
       />
     </div>
