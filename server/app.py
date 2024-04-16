@@ -66,15 +66,15 @@ class AllAlbums(Resource):
 
     def get(self):
         albums = Album.query.all()
-        body = [album.to_dict(only=('id', 'name', 'year', 'song')) for album in albums]
+        body = [album.to_dict(only=('id', 'name', 'year', 'song', 'artist_name')) for album in albums]
         return make_response(body, 200)
     
     def post(self):
         try:
-            new_album = Album(name=request.json.get('name'), year=request.json.get('year'), song=request.json.get('song'))
+            new_album = Album(name=request.json.get('name'), year=request.json.get('year'), song=request.json.get('song'), artist_name=request.json.get('artist_name'))
             db.session.add(new_album)
             db.session.commit()
-            body = new_album.to_dict(only=('id', 'name', 'year', 'song'))
+            body = new_album.to_dict(only=('id', 'name', 'year', 'song', 'artist_name'))
             return make_response(body, 201)
         except:
             body = {"error": "Could not create new album."}
@@ -107,7 +107,7 @@ class AlbumByID(Resource):
                 for attr in request.json:
                     setattr(album, attr, request.json[attr])
                 db.session.commit()
-                body = album.to_dict(only=('id', 'name', 'year', 'song'))
+                body = album.to_dict(only=('id', 'name', 'year', 'song', 'artist_name'))
                 return make_response(body, 200)
             except:
                 body = {"error": "Album could not be updated."}

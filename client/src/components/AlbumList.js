@@ -14,6 +14,7 @@ function AlbumList() {
       <thead>
         <tr>
           <th className="border px-4 py-2">Album ID</th>
+          <th className="border px-4 py-2">Artist Name</th>
           <th className="border px-4 py-2">Name</th>
           <th className="border px-4 py-2">Release Year</th>
           <th className="border px-4 py-2">Favorite Song</th>

@@ -30,6 +30,7 @@ class Album(db.Model, SerializerMixin):
   name = db.Column(db.String, unique=True)
   year = db.Column(db.Integer, nullable=False)
   song = db.Column(db.String, nullable=False)
+  artist_name = db.Column(db.String, nullable=False)
 
   reviews = db.relationship('Review', back_populates='album', cascade='all')
 

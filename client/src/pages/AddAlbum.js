@@ -6,6 +6,7 @@ function AddAlbum() {
     name: "",
     year: "",
     song: "",
+    artist_name: "",
   });
 
   const { addAlbum } = useOutletContext();
@@ -21,6 +22,7 @@ function AddAlbum() {
       name: "",
       year: "",
       song: "",
+      artist_name: "",
     });
     navigate("/albums");
   }
@@ -36,6 +38,15 @@ function AddAlbum() {
     <div className="text-center">
       <h2 className="text-teal-300 text-5xl mb-4">Add Album</h2>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
+        <input
+          className="input input-bordered input-info w-full max-w-xs mb-4"
+          type="text"
+          name="artist_name"
+          placeholder="Artist name"
+          onChange={updateFormData}
+          value={albumFormData.artist_name}
+          required
+        />
         <input
           className="input input-bordered input-info w-full max-w-xs mb-4"
           type="text"
