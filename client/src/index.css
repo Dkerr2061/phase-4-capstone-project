@@ -4,3 +4,10 @@
 
 
 
+.page-gradient {
+  background: linear-gradient(to bottom right, #8a2387, #e94057, #f27121);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

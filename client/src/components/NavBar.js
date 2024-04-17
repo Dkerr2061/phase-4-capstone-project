@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 function NavBar({ onSearchText, searchText }) {
   const location = useLocation();
@@ -10,7 +11,7 @@ function NavBar({ onSearchText, searchText }) {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle hover:animate-bounce"
+            className="btn glass bg-slate-800 btn-circle hover:animate-pulse"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,18 +42,17 @@ function NavBar({ onSearchText, searchText }) {
               <NavLink to="/add_artist">Add Artist</NavLink>
             </li>
             <li>
-              <NavLink to="/add_album">Add Album</NavLink>
-            </li>
-            <li>
               <NavLink to="/reviews">View Reviews</NavLink>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <button className="btn btn-ghost text-4xl hover:animate-pulse">
-          <NavLink to="/">🎧 Looney Tunes 🎧</NavLink>
-        </button>
+        <Fade delay={500}>
+          <button className="btn glass bg-slate-800 text-4xl hover:animate-pulse">
+            <NavLink to="/">🎧 Looney Tunes 🎧</NavLink>
+          </button>
+        </Fade>
       </div>
       <div className="navbar-end">
         {location.pathname === "/" && (
@@ -60,7 +60,7 @@ function NavBar({ onSearchText, searchText }) {
             <input
               type="text"
               placeholder="Search Artist"
-              className="input input-bordered w-24 md:w-auto"
+              className="input input-bordered w-24 md:w-auto glass bg-slate-800 hover:animate-pulse"
               onChange={onSearchText}
               value={searchText}
             />

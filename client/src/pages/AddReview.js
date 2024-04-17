@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
+import { Slide, Zoom } from "react-awesome-reveal";
 
 function AddReview() {
   const [newReview, setNewReview] = useState({
@@ -43,51 +44,57 @@ function AddReview() {
 
   return (
     <div className="text-center">
-      <h2 className="text-teal-300 text-5xl mb-4">Add Review</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="artist_id"
-          placeholder="Artist ID"
-          onChange={updateFormData}
-          value={newReview.artist_id}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="album_id"
-          placeholder="Album ID"
-          onChange={updateFormData}
-          value={newReview.album_id}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="rating"
-          placeholder="Rating"
-          onChange={updateFormData}
-          value={newReview.rating}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="text"
-          placeholder="Review Text"
-          onChange={updateFormData}
-          value={newReview.text}
-          required
-        />
-        <button
-          type="submit"
-          className="btn btn-outline btn-info hover:animate-pulse"
-        >
-          Add Review
-        </button>
-      </form>
+      <Zoom delay={200}>
+        <h2 className="text-teal-300 text-5xl mb-4">Add Review</h2>
+      </Zoom>
+      <Slide cascade delay={500}>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="artist_id"
+            placeholder="Artist ID"
+            onChange={updateFormData}
+            value={newReview.artist_id}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="album_id"
+            placeholder="Album ID"
+            onChange={updateFormData}
+            value={newReview.album_id}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="rating"
+            placeholder="Rating"
+            onChange={updateFormData}
+            value={newReview.rating}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="text"
+            placeholder="Review Text"
+            onChange={updateFormData}
+            value={newReview.text}
+            required
+          />
+          <Zoom delay={700}>
+            <button
+              type="submit"
+              className="btn btn-outline btn-info hover:animate-pulse"
+            >
+              Add Review
+            </button>
+          </Zoom>
+        </form>
+      </Slide>
     </div>
   );
 }

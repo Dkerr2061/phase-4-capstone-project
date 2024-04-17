@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useOutletContext, useNavigate } from "react-router-dom";
+import { Slide, Zoom } from "react-awesome-reveal";
 
 function UpdateAlbum() {
   const [album, setAlbum] = useState(null);
@@ -49,51 +50,57 @@ function UpdateAlbum() {
 
   return (
     <div className="text-center">
-      <h2 className="text-teal-300 text-5xl mb-4">Update Album</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="artist_name"
-          placeholder="Artist name"
-          onChange={updateFormData}
-          value={albumFormData.artist_name}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="name"
-          placeholder="Album name"
-          onChange={updateFormData}
-          value={albumFormData.name}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="year"
-          placeholder="Album Release Year"
-          onChange={updateFormData}
-          value={albumFormData.year}
-          required
-        />
-        <input
-          className="input input-bordered input-info w-full max-w-xs mb-4"
-          type="text"
-          name="song"
-          placeholder="Favorite Song"
-          onChange={updateFormData}
-          value={albumFormData.song}
-          required
-        />
-        <button
-          type="submit"
-          className="btn btn-outline btn-info hover:animate-pulse"
-        >
-          Update Album
-        </button>
-      </form>
+      <Zoom delay={200}>
+        <h2 className="text-teal-300 text-5xl mb-4">Update Album</h2>
+      </Zoom>
+      <Slide cascade delay={500}>
+        <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="artist_name"
+            placeholder="Artist name"
+            onChange={updateFormData}
+            value={albumFormData.artist_name}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="name"
+            placeholder="Album name"
+            onChange={updateFormData}
+            value={albumFormData.name}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="year"
+            placeholder="Album Release Year"
+            onChange={updateFormData}
+            value={albumFormData.year}
+            required
+          />
+          <input
+            className="input input-bordered input-info w-full max-w-xs mb-4"
+            type="text"
+            name="song"
+            placeholder="Favorite Song"
+            onChange={updateFormData}
+            value={albumFormData.song}
+            required
+          />
+          <Zoom delay={700}>
+            <button
+              type="submit"
+              className="btn btn-outline btn-info hover:animate-pulse"
+            >
+              Update Album
+            </button>
+          </Zoom>
+        </form>
+      </Slide>
     </div>
   );
 }

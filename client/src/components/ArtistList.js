@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 import Artists from "./Artists";
 
 function ArtistList() {
@@ -11,9 +12,11 @@ function ArtistList() {
   });
 
   return (
-    <div className="flex flex-wrap justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
-      {artistsComponents}
-    </div>
+    <Fade cascade delay={200}>
+      <div className="flex flex-wrap justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+        {artistsComponents}
+      </div>
+    </Fade>
   );
 }
 
