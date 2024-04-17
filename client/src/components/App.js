@@ -6,8 +6,22 @@ function App() {
   const [artists, setArtists] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   const navigate = useNavigate();
+
+  // Search Feature for NavBar
+  const filteredArtists = artists.filter((artist) => {
+    if (searchText === "") {
+      return true;
+    } else {
+      return artist.name.toLowerCase().includes(searchText.toLowerCase());
+    }
+  });
+
+  function onSearchText(event) {
+    setSearchText(event.target.value);
+  }
 
   // Aritst Data and Functions:
   useEffect(() => {
@@ -212,10 +226,10 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar onSearchText={onSearchText} searchText={searchText} />
       <Outlet
         context={{
-          artists: artists,
+          artists: filteredArtists,
           addArtist: addArtist,
           deleteArtist: deleteArtist,
           addAlbum: addAlbum,

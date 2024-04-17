@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ onSearchText, searchText }) {
+  const location = useLocation();
+
   return (
     <div className="navbar bg-gradient-to-r from-sky-500 to-indigo-500">
       <div className="navbar-start">
@@ -53,13 +55,17 @@ function NavBar() {
         </button>
       </div>
       <div className="navbar-end">
-        <div className="form-control">
-          <input
-            type="text"
-            placeholder="Search"
-            className="input input-bordered w-24 md:w-auto"
-          />
-        </div>
+        {location.pathname === "/" && (
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered w-24 md:w-auto"
+              onChange={onSearchText}
+              value={searchText}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
