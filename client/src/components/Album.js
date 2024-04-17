@@ -22,7 +22,7 @@ function Album({ album, deleteAlbum }) {
       <td>
         <button
           type="submit"
-          className="btn btn-outline btn-info"
+          className="btn btn-outline btn-info hover:animate-pulse"
           onClick={navigateToUpdateAlbum}
         >
           Update Album
@@ -31,7 +31,7 @@ function Album({ album, deleteAlbum }) {
       <td>
         <button
           type="submit"
-          className="btn btn-outline btn-info"
+          className="btn btn-outline btn-info hover:animate-pulse"
           onClick={handleDeleteAlbum}
         >
           Delete Album

@@ -81,7 +81,10 @@ function AddReview() {
           value={newReview.text}
           required
         />
-        <button type="submit" className="btn btn-outline btn-info">
+        <button
+          type="submit"
+          className="btn btn-outline btn-info hover:animate-pulse"
+        >
           Add Review
         </button>
       </form>

@@ -32,10 +32,16 @@ function Reviews({ review, deleteReview }) {
           {text}
         </p>
         <div className="flex space-x-3 justify-center">
-          <button className="btn btn-primary" onClick={navigateToEdit}>
+          <button
+            className="btn btn-primary hover:animate-pulse"
+            onClick={navigateToEdit}
+          >
             Edit Review
           </button>
-          <button className="btn btn-primary" onClick={handleDelete}>
+          <button
+            className="btn btn-primary hover:animate-ping"
+            onClick={handleDelete}
+          >
             Delete Review
           </button>
         </div>

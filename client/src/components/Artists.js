@@ -24,10 +24,16 @@ function Artists({ artist, deleteArtist }) {
       <div className="card-body items-center text-center">
         <h2 className="card-title">{artist.name}</h2>
         <div className="card-actions">
-          <button className="btn btn-primary" onClick={navigateToDetails}>
+          <button
+            className="btn btn-primary hover:animate-pulse"
+            onClick={navigateToDetails}
+          >
             Artist Info
           </button>
-          <button className="btn btn-primary" onClick={handleDelete}>
+          <button
+            className="btn btn-primary hover:animate-ping"
+            onClick={handleDelete}
+          >
             Delete Artist
           </button>
         </div>

@@ -11,7 +11,9 @@ function ArtistList() {
   });
 
   return (
-    <div className="flex flex-wrap justify-center">{artistsComponents}</div>
+    <div className="flex flex-wrap justify-center bg-gradient-to-r from-cyan-500 to-blue-500">
+      {artistsComponents}
+    </div>
   );
 }
 

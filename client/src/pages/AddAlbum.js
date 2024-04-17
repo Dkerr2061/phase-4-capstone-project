@@ -74,7 +74,10 @@ function AddAlbum() {
           value={albumFormData.song}
           required
         />
-        <button type="submit" className="btn btn-outline btn-info">
+        <button
+          type="submit"
+          className="btn btn-outline btn-info hover:animate-pulse"
+        >
           Add Album
         </button>
       </form>

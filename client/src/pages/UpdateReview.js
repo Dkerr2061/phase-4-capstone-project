@@ -95,7 +95,10 @@ function UpdateReview() {
           value={updatedReviewData.text}
           required
         />
-        <button type="submit" className="btn btn-outline btn-info">
+        <button
+          type="submit"
+          className="btn btn-outline btn-info hover:animate-pulse"
+        >
           Update Review
         </button>
       </form>
