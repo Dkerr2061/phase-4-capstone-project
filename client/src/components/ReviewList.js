@@ -11,7 +11,7 @@ function ReviewList() {
   });
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500">
+    <div className="flex flex-wrap justify-center items-center bg-gradient-to-r from-cyan-500 to-blue-500">
       <div>{reviewComponent}</div>
     </div>
   );

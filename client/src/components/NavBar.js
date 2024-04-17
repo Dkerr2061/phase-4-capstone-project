@@ -59,7 +59,7 @@ function NavBar({ onSearchText, searchText }) {
           <div className="form-control">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Artist"
               className="input input-bordered w-24 md:w-auto"
               onChange={onSearchText}
               value={searchText}
