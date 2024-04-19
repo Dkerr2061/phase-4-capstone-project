@@ -15,11 +15,11 @@ function Album({ album, deleteAlbum }) {
 
   return (
     <tr>
-      <th className="border px-4 py-2">{id}</th>
-      <th className="border px-4 py-2">{artist_name}</th>
-      <td className="border px-4 py-2">{name}</td>
-      <td className="border px-4 py-2">{year}</td>
-      <td className="border px-4 py-2">{song}</td>
+      <th className="border px-4 py-2 text-cyan-400">{id}</th>
+      <th className="border px-4 py-2 text-yellow-400">{artist_name}</th>
+      <td className="border px-4 py-2 text-yellow-400">{name}</td>
+      <td className="border px-4 py-2 text-yellow-400">{year}</td>
+      <td className="border px-4 py-2 text-yellow-400">{song}</td>
       <td>
         <button
           type="submit"
