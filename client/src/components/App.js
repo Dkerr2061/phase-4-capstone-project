@@ -30,6 +30,27 @@ function App() {
       .then((artistData) => setArtists(artistData));
   }, []);
 
+  // Learn this syntax, this is the proper way of doing a post request. Research this and implement it in your new project.
+
+  // async function addArtist(newArtist) {
+
+  //   try {
+  //     const response = await fetch("/artists", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(newArtist),
+  //     })
+  //     const json = await response.json();
+  //     console.log(json);
+  //   } catch (err) {
+  //     console.log(err)
+  //   } finally {
+  // do this no matter what happens
+  //   }
+  // }
+
   function addArtist(newArtist) {
     fetch("/artists", {
       method: "POST",
@@ -231,8 +252,8 @@ function App() {
         context={{
           artists: filteredArtists,
           addArtist: addArtist,
-          deleteArtist: deleteArtist,
-          addAlbum: addAlbum,
+          deleteArtist,
+          addAlbum,
           albums: albums,
           deleteAlbum: deleteAlbum,
           updateAlbum: updateAlbum,
