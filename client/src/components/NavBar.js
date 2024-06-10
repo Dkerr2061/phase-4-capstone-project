@@ -60,7 +60,7 @@ function NavBar({ onSearchText, searchText }) {
             <input
               type="text"
               placeholder="Search Artist"
-              className="input input-bordered w-24 md:w-auto glass bg-slate-800 hover:animate-pulse"
+              className="input input-bordered w-24 md:w-auto  hover:animate-pulse"
               onChange={onSearchText}
               value={searchText}
             />
