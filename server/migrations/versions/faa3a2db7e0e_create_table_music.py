@@ -1,8 +1,8 @@
-"""Initial migration
+"""create table music
 
-Revision ID: 01e2561ca550
+Revision ID: faa3a2db7e0e
 Revises: 
-Create Date: 2024-04-12 13:58:51.296930
+Create Date: 2024-06-10 14:41:59.394778
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '01e2561ca550'
+revision = 'faa3a2db7e0e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,6 +23,7 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=True),
     sa.Column('year', sa.Integer(), nullable=False),
     sa.Column('song', sa.String(), nullable=False),
+    sa.Column('artist_name', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
