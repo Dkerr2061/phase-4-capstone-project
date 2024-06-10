@@ -7,7 +7,7 @@ from flask import request, make_response
 from flask_restful import Resource
 
 # Local imports
-from server.config import app, db, api
+from server.config import app, db, api, os
 
 # Add your model imports
 from server.models import Artist, Album, Review
@@ -234,4 +234,5 @@ class ReviewsByID(Resource):
 api.add_resource(ReviewsByID, "/reviews/<int:id>")
 
 if __name__ == "__main__":
-    app.run(port=5555, debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5555)), debug=True)
+    # app.run(port=5555, debug=True)
