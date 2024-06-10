@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 
 function App() {
+  const API_URL = process.env.REACT_APP_API_URL;
   const [artists, setArtists] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [reviews, setReviews] = useState([]);
@@ -25,7 +26,7 @@ function App() {
 
   // Aritst Data and Functions:
   useEffect(() => {
-    fetch("/artists")
+    fetch(`${API_URL}/artists`)
       .then((res) => res.json())
       .then((artistData) => setArtists(artistData));
   }, []);
@@ -52,7 +53,7 @@ function App() {
   // }
 
   function addArtist(newArtist) {
-    fetch("/artists", {
+    fetch(`${API_URL}/artists`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +74,7 @@ function App() {
   }
 
   function deleteArtist(id) {
-    fetch(`/artists/${id}`, {
+    fetch(`${API_URL}/artists/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
@@ -92,14 +93,14 @@ function App() {
   // Album Data and Functions:
 
   useEffect(() => {
-    fetch("/albums")
+    fetch(`${API_URL}/albums`)
       .then((res) => res.json())
       .then((albumData) => setAlbums(albumData));
   }, []);
   // Ask Why this is stuck in an infinite loop whenever you pass albums in the dependancy array. It started happening when I added the update function
 
   function addAlbum(newAlbum) {
-    fetch("/albums", {
+    fetch(`${API_URL}/albums`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -119,7 +120,7 @@ function App() {
   }
 
   function updateAlbum(id, albumDataToUpdate) {
-    fetch(`/albums/${id}`, {
+    fetch(`${API_URL}/albums/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -151,7 +152,7 @@ function App() {
   }
 
   function deleteAlbum(id) {
-    fetch(`/albums/${id}`, {
+    fetch(`${API_URL}/albums/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
@@ -170,13 +171,13 @@ function App() {
   // Reviews Data and Functions:
 
   useEffect(() => {
-    fetch("/reviews")
+    fetch(`${API_URL}/reviews`)
       .then((res) => res.json())
       .then((reviewsData) => setReviews(reviewsData));
   }, []);
 
   function addReviews(newReviewData) {
-    fetch("/reviews", {
+    fetch(`${API_URL}/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -194,7 +195,7 @@ function App() {
   }
 
   function updateReview(id, reviewDataToUpdate) {
-    fetch(`/reviews/${id}`, {
+    fetch(`${API_URL}/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -226,7 +227,7 @@ function App() {
   }
 
   function deleteReview(id) {
-    fetch(`/reviews/${id}`, {
+    fetch(`${API_URL}/reviews/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
