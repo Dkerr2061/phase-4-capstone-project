@@ -6,4 +6,4 @@ services:
     startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT server.app:app  
     envVars:
       - key: DATABASE_URL
-        value: your_database_url
+        value: postgresql://my_db_q8iz_user:wEfOGbCbRBDdSXfDPd8f8HqJjl4SKC9J@dpg-cp1eak6ct0pc73cum7a0-a.ohio-postgres.render.com/looney_tunes_db
