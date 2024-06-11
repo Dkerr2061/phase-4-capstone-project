@@ -1,8 +1,8 @@
 """create table music
 
-Revision ID: faa3a2db7e0e
+Revision ID: 897c8581a6f4
 Revises: 
-Create Date: 2024-06-10 14:41:59.394778
+Create Date: 2024-06-10 23:13:19.372300
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'faa3a2db7e0e'
+revision = '897c8581a6f4'
 down_revision = None
 branch_labels = None
 depends_on = None

@@ -7,13 +7,17 @@ from flask import request, make_response
 from flask_restful import Resource
 
 # Local imports
-from server.config import app, db, api, os
+from config import app, db, api, os, render_template
 
 # Add your model imports
-from server.models import Artist, Album, Review
+from models import Artist, Album, Review
 
 
 # Views go here!
+@app.route("/")
+@app.route("/<int:id>")
+def index(id=0):
+    return render_template("index.html")
 
 
 class AllArtist(Resource):
@@ -234,5 +238,5 @@ class ReviewsByID(Resource):
 api.add_resource(ReviewsByID, "/reviews/<int:id>")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5555)), debug=True)
-    # app.run(port=5555, debug=True)
+    # app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5555)), debug=True)
+    app.run(port=5555, debug=True)

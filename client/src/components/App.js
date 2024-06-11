@@ -26,7 +26,7 @@ function App() {
 
   // Aritst Data and Functions:
   useEffect(() => {
-    fetch(`${API_URL}/artists`)
+    fetch("/artists")
       .then((res) => res.json())
       .then((artistData) => setArtists(artistData));
   }, []);
@@ -53,7 +53,7 @@ function App() {
   // }
 
   function addArtist(newArtist) {
-    fetch(`${API_URL}/artists`, {
+    fetch("/artists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +74,7 @@ function App() {
   }
 
   function deleteArtist(id) {
-    fetch(`${API_URL}/artists/${id}`, {
+    fetch(`/artists/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
@@ -93,14 +93,14 @@ function App() {
   // Album Data and Functions:
 
   useEffect(() => {
-    fetch(`${API_URL}/albums`)
+    fetch("/albums")
       .then((res) => res.json())
       .then((albumData) => setAlbums(albumData));
   }, []);
   // Ask Why this is stuck in an infinite loop whenever you pass albums in the dependancy array. It started happening when I added the update function
 
   function addAlbum(newAlbum) {
-    fetch(`${API_URL}/albums`, {
+    fetch("/albums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -120,7 +120,7 @@ function App() {
   }
 
   function updateAlbum(id, albumDataToUpdate) {
-    fetch(`${API_URL}/albums/${id}`, {
+    fetch(`/albums/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -152,7 +152,7 @@ function App() {
   }
 
   function deleteAlbum(id) {
-    fetch(`${API_URL}/albums/${id}`, {
+    fetch(`/albums/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
@@ -171,13 +171,13 @@ function App() {
   // Reviews Data and Functions:
 
   useEffect(() => {
-    fetch(`${API_URL}/reviews`)
+    fetch("/reviews")
       .then((res) => res.json())
       .then((reviewsData) => setReviews(reviewsData));
   }, []);
 
   function addReviews(newReviewData) {
-    fetch(`${API_URL}/reviews`, {
+    fetch("/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -195,7 +195,7 @@ function App() {
   }
 
   function updateReview(id, reviewDataToUpdate) {
-    fetch(`${API_URL}/reviews/${id}`, {
+    fetch(`/reviews/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -227,7 +227,7 @@ function App() {
   }
 
   function deleteReview(id) {
-    fetch(`${API_URL}/reviews/${id}`, {
+    fetch(`/reviews/${id}`, {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
