@@ -48,7 +48,7 @@ function AddArtist() {
             className="input input-bordered input-info w-full max-w-xs mb-4"
             type="text"
             name="image"
-            placeholder="Artist image"
+            placeholder="Artist image URL"
             onChange={updateFormData}
             value={formData.image}
             required
