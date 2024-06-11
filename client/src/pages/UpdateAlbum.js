@@ -32,7 +32,7 @@ function UpdateAlbum() {
         res.json().then(() => alert("Error: Something went wrong."));
       }
     });
-  }, []);
+  }, [id]);
 
   function handleSubmit(e) {
     e.preventDefault();

@@ -3,7 +3,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 
 function App() {
-  const API_URL = process.env.REACT_APP_API_URL;
   const [artists, setArtists] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [reviews, setReviews] = useState([]);
